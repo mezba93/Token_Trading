@@ -60,15 +60,15 @@ class TokenSystem:
                 now = datetime.strptime(user_time, "%d/%m/%y %I:%M %p")  
 
                 if meal_type.lower() == "lunch" and now.hour >= 14:
-                    print("❌ You cannot add lunch tokens after 2 PM.")
+                    print("You cannot add lunch tokens after 2 PM.")
                     return
                 elif meal_type.lower() == "dinner" and (now.hour > 22 or (now.hour == 22 and now.minute > 15)):
-                    print("❌ You cannot add dinner tokens after 10:15 PM.")
+                    print("You cannot add dinner tokens after 10:15 PM.")
                     return
 
                 break
             except ValueError:
-                print("❌ Invalid format! Please enter in DD/MM/YY hh:mm AM/PM format.")
+                print("Invalid format! Please enter in DD/MM/YY hh:mm AM/PM format.")
 
         timestamp = now.strftime("%d/%m/%y %I:%M %p")
 
