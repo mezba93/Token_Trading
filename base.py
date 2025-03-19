@@ -57,9 +57,8 @@ class TokenSystem:
         while True:
             user_time = input("Enter timestamp (DD/MM/YY hh:mm AM/PM): ").strip()
             try:
-                now = datetime.strptime(user_time, "%d/%m/%y %I:%M %p")  # 12-hour format with AM/PM
+                now = datetime.strptime(user_time, "%d/%m/%y %I:%M %p")  
 
-                # Restrict meal entry time
                 if meal_type.lower() == "lunch" and now.hour >= 14:
                     print("❌ You cannot add lunch tokens after 2 PM.")
                     return
@@ -91,12 +90,12 @@ class TokenSystem:
 
         print("\n--- Available Tokens in Halls ---")
         for hall, sellers in self.halls.items():
-            print(f"\n📍 {hall}:")
+            print(f"\n {hall}:")
             valid_sellers = []
 
             for seller in sellers:
                 try:
-                    token_time = datetime.strptime(seller["timestamp"], "%d/%m/%y %I:%M %p")  # 12-hour format
+                    token_time = datetime.strptime(seller["timestamp"], "%d/%m/%y %I:%M %p")  
                 except ValueError:
                     continue
 
@@ -114,7 +113,7 @@ class TokenSystem:
             self.halls[hall] = valid_sellers
 
             if not valid_sellers:
-                print("  ❌ No valid tokens available.")
+                print("   No valid tokens available.")
             else:
                 print("  ---------------------------------")
                 for i, seller in enumerate(valid_sellers, start=1):
