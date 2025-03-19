@@ -1,7 +1,6 @@
 import json
 from datetime import datetime
 
-
 class TokenSystem:
     def __init__(self):
         self.data_file = "token_data.json"
@@ -146,8 +145,7 @@ class TokenSystem:
         self.users = {}
         self.save_data()
         print("All users have been erased.")
-
-
+        
 def main():
     system = TokenSystem()
 
